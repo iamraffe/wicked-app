@@ -45,9 +45,9 @@ ActiveRecord::Schema.define(version: 20160525001710) do
     t.string   "type"
     t.boolean  "approved",   default: false
     t.integer  "user_id"
-    t.string   "status"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.string   "status",     default: "building"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.index ["user_id"], name: "index_graphs_on_user_id", using: :btree
   end
 

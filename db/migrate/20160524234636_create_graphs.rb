@@ -3,8 +3,8 @@ class CreateGraphs < ActiveRecord::Migration[5.0]
     create_table :graphs do |t|
       t.string :type
       t.boolean :approved, default: false
-      t.belongs_to :user, index: true
-      t.string :status
+      t.references :user, index: true, :null => true
+      t.string :status, default: 'building'
       t.timestamps
     end
   end

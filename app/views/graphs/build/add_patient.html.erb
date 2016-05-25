@@ -1,0 +1,9 @@
+<%= @graph.to_json %>
+
+<%= form_for @graph, url: wizard_path do |f| %>
+  <% f.fields_for :patient do |o| %>
+    <%= o.number_field :id %>
+    <%= o.text_field :full_name %>
+  <% end %>
+  <%= f.button :submit %>
+<% end %>

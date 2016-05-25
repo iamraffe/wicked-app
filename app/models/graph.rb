@@ -6,7 +6,7 @@ class Graph < ApplicationRecord
       super( Array(new_item) - proxy_association.owner.interventions )
     end
   end
-  validates :interventions, presence: true
+  validates :interventions, presence: true, :if => :active_or_interventions?
   accepts_nested_attributes_for :interventions
 
   # Entries
@@ -16,13 +16,30 @@ class Graph < ApplicationRecord
       super( Array(new_item) - proxy_association.owner.entries )
     end
   end
-  validates :entries, presence: true
+  validates :entries, presence: true,  :if => :active_or_entries?
   accepts_nested_attributes_for :entries
 
   # Patient
-  belongs_to :patient, class: "User"
-  validates :patient, presence: true
+  belongs_to :patient, class_name: "User", optional: true
+  validates :patient, presence: true, :if => :active_or_patient?
   accepts_nested_attributes_for :patient
 
+  # Type
+  validates :type, presence: true
 
+  def active?
+    status == 'active'
+  end
+
+  def active_or_patient?
+    status.include?('patient') || active?
+  end
+
+  def active_or_entries?
+    status.include?('entries') || active?
+  end
+
+  def active_or_interventions?
+    status.include?('interventions') || active?
+  end
 end
