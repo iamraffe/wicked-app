@@ -2,12 +2,11 @@
 
 <%= @graph.user.to_json %>
 
-<%= form_for @graph, url: wizard_path do |f| %>
+<%= form_for @graph.becomes(Graph), url: wizard_path do |f| %>
   <%= f.hidden_field :status, value: @graph.status %>
-<!--   <%= f.text_field :type %> -->
-  <%= f.fields_for :user do |patient| %>
+  <%= f.text_field :type %>
+  <%= f.fields_for @graph.build_user do |patient| %>
     <%= patient.number_field :id %><br />
-    <!-- <%= patient.text_field :first_name %> -->
   <% end %>
   <%= f.button :submit %>
 <% end %>

@@ -20,9 +20,9 @@ class Graph < ApplicationRecord
   accepts_nested_attributes_for :entries
 
   # Patient
-  belongs_to :patient, class_name: "User", optional: true
-  validates :patient, presence: true, :if => :active_or_patient?
-  accepts_nested_attributes_for :patient
+  belongs_to :user, optional: true
+  validates :user, presence: true, :if => :active_or_patient?
+  accepts_nested_attributes_for :user
 
   # Type
   validates :type, presence: true

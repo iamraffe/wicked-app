@@ -5,6 +5,11 @@ class Graphs::BuildController < ApplicationController
 
   def show
     @graph = Graph.find(params[:graph_id])
+    case step
+    when :add_patient
+      # @graph.becomes(Graph)
+      @graph.build_user
+    end
     render_wizard
   end
 
@@ -14,10 +19,9 @@ class Graphs::BuildController < ApplicationController
 
   def update
     @graph = Graph.find(params[:graph_id])
-    byebug
     params[:graph][:status] = step.to_s
     params[:graph][:status] = 'active' if step == steps.last
-    @graph.update_attributes(params[:graph])
+    @graph.update_attributes(graph_params)
     render_wizard @graph
   end
 
@@ -30,7 +34,8 @@ class Graphs::BuildController < ApplicationController
     def graph_params
       params.require(:graph).permit(
         :type,
-        patient_attributes: [:id, :full_name],
+        user: [:id, :full_name],
+        user_attributes: [:id, :full_name],
         interventions_attributes: [:start,:end,:title,:description,:index,:type,:chart_type,:id],
         entries_attributes: [:date,:value,:symbol,:id])
     end
