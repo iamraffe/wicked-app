@@ -3,11 +3,8 @@
 <%= @graph.user.to_json %>
 
 <%= form_for @graph, url: wizard_path do |f| %>
+  <input type="hidden" value="<%= @graph.type %>" name="type">
   <%= f.hidden_field :status, value: @graph.status %>
-<!--   <%= f.text_field :type %> -->
-  <%= f.fields_for :user do |patient| %>
-    <%= patient.number_field :id %><br />
-    <!-- <%= patient.text_field :first_name %> -->
-  <% end %>
+  <%= f.select :user_id, options_for_select(User.all.collect{|m| [m.full_name, m.id]}) %>
   <%= f.button :submit %>
 <% end %>

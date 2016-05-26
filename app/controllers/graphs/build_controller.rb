@@ -19,8 +19,8 @@ class Graphs::BuildController < ApplicationController
 
   def update
     @graph = Graph.find(params[:graph_id])
-    params[:graph][:status] = step.to_s
-    params[:graph][:status] = 'active' if step == steps.last
+    params[graph][:status] = step.to_s
+    params[graph][:status] = 'active' if step == steps.last
     @graph.update_attributes(graph_params)
     render_wizard @graph
   end
@@ -31,11 +31,13 @@ class Graphs::BuildController < ApplicationController
   end
 
   private
+    def graph
+      params[:type].nil? ? 'graph'.to_sym : params[:type].underscore.to_sym
+    end
+
     def graph_params
-      params.require(:graph).permit(
-        :type,
-        user: [:id, :full_name],
-        user_attributes: [:id, :full_name],
+      params.require(graph).permit(
+        :type, :user_id, :status,
         interventions_attributes: [:start,:end,:title,:description,:index,:type,:chart_type,:id],
         entries_attributes: [:date,:value,:symbol,:id])
     end

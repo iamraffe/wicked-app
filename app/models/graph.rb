@@ -22,7 +22,7 @@ class Graph < ApplicationRecord
   # Patient
   belongs_to :user, optional: true
   validates :user, presence: true, :if => :active_or_patient?
-  accepts_nested_attributes_for :user
+  # accepts_nested_attributes_for :user
 
   # Type
   validates :type, presence: true
