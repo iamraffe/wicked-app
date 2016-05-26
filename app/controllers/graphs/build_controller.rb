@@ -27,7 +27,7 @@ class Graphs::BuildController < ApplicationController
 
   private
     def graph
-      params[:type].nil? ? 'graph'.to_sym : params[:type].underscore.to_sym
+      params[:type].nil? ? :graph : params[:type].underscore.to_sym
     end
 
     def graph_params
