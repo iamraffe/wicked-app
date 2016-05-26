@@ -10,6 +10,12 @@ gem 'turbolinks', '~> 5.x'
 gem 'jbuilder', '~> 2.0'
 gem 'wicked'
 gem 'devise'
+gem 'bootstrap-sass'
+gem 'bootswatch-rails'
+gem 'font-awesome-rails'
+gem 'd3-rails'
+gem 'animate-rails'
+gem 'bootstrap-select-rails'
 
 group :development, :test do
   gem 'byebug', platform: :mri
