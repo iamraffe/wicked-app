@@ -11,15 +11,9 @@ if (window.DVE === undefined) {
 DVE.init = function () {
   console.log("/*--------------------DVE INIT--------------------*/")
   this.graph_wrapper = $("#graph");
-
   if(this.graph_wrapper.length){
-
     this.graph_type = this.graph_wrapper.parent().data("type");
-
     this.url = this.graph_wrapper.parent().data("id");
-
-    this.keys = this.graph_wrapper.parent().data("keys");
-
     $.ajax({
       type: "GET",
       contentType: "application/json; charset=utf-8",
@@ -32,7 +26,7 @@ DVE.init = function () {
           .on("click", DVE.current_graph.export);
       }.bind(this),
       error: function (result) {
-         error();
+         console.log("Error!")
       }
     });
   }
