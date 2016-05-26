@@ -5,11 +5,6 @@ class Graphs::BuildController < ApplicationController
 
   def show
     @graph = Graph.find(params[:graph_id])
-    case step
-    when :add_patient
-      # @graph.becomes(Graph)
-      @graph.build_user
-    end
     render_wizard
   end
 
@@ -39,6 +34,6 @@ class Graphs::BuildController < ApplicationController
       params.require(graph).permit(
         :type, :user_id, :status,
         interventions_attributes: [:start,:end,:title,:description,:index,:type,:chart_type,:id],
-        entries_attributes: [:date,:value,:symbol,:id])
+        entries_attributes: [:date,:value,:symbol,:id, :user_id])
     end
 end

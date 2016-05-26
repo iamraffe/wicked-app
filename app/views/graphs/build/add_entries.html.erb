@@ -2,8 +2,12 @@
 
 <h1><%= @graph.user.full_name %></h1>
 
-<%= form_for @graph, url: wizard_path do |f| %>
+<%= form_for graph_entries(@graph), url: wizard_path do |f| %>
   <input type="hidden" value="<%= @graph.type %>" name="type">
   <%= f.hidden_field :status, value: @graph.status %>
+  <%= f.fields_for :entries do |e| %>
+    <%= e.hidden_field :user_id %>
+    <%= e.text_field :symbol %>
+  <% end %>
   <%= f.button :submit %>
 <% end %>
