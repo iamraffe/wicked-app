@@ -27,6 +27,13 @@ class Graphs::BuildController < ApplicationController
     redirect_to wizard_path(steps.first, :graph_id => @graph.id)
   end
 
+  protected
+    def finish_wizard_path
+      # byebug
+      # root_url
+      graph_path(params[:graph_id])
+    end
+
   private
     def graph
       params[:type].nil? ? :graph : params[:type].underscore.to_sym

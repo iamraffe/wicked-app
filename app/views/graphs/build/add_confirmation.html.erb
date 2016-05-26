@@ -5,3 +5,12 @@
     </div>
   </div>
 </div>
+<div class="row">
+  <div class="col-xs-10 col-xs-offset-1">
+    <%= form_for @graph, url: wizard_path do |f| %>
+      <input type="hidden" value="<%= @graph.type %>" name="type">
+      <%= f.hidden_field :status, value: @graph.status %>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
+</div>
