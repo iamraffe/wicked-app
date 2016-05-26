@@ -1,7 +1,9 @@
 class Graphs::BuildController < ApplicationController
   include Wicked::Wizard
 
-  steps :add_patient, :add_entries, :add_interventions, :add_confirmation
+  steps :add_patient, :add_entries, :add_confirmation
+
+  # steps :add_patient, :add_entries, :add_interventions, :add_confirmation
 
   def show
     @graph = Graph.find(params[:graph_id])

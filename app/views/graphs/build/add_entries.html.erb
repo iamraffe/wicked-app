@@ -6,8 +6,22 @@
   <input type="hidden" value="<%= @graph.type %>" name="type">
   <%= f.hidden_field :status, value: @graph.status %>
   <%= f.fields_for :entries do |e| %>
-    <%= e.hidden_field :user_id %>
-    <%= e.text_field :symbol %>
+    <div class="row">
+      <%= e.hidden_field :user_id %>
+      <%= e.hidden_field :symbol %>
+      <div class="form-group">
+        <div class="col-sm-3">
+          <%= e.date_field :date, class: "form-control" %>
+        </div>
+        <div class="col-sm-3">
+          <%= e.number_field :value, class: "form-control" %>
+        </div>
+      </div>
+    </div>
   <% end %>
-  <%= f.button :submit %>
+  <div class="row">
+    <div class="form-group col-sm-4 col-sm-offset-8">
+      <%= f.submit "Continue", class:"btn btn-primary form-control btn-block" %>
+    </div>
+  </div>
 <% end %>

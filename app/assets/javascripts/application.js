@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require d3
+//= require graphs/dve/init
 //= require bootstrap-sprockets
 //= require bootstrap-select
 //= require_tree .

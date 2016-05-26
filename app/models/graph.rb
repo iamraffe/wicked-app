@@ -12,6 +12,11 @@ class Graph < ApplicationRecord
   # Entries
   has_many :patient_entries
   has_many :entries, through: :patient_entries do
+    # def build(hash)
+    #   byebug
+    #   create(:symbol => type)
+    # end
+
     def <<(new_item)
       super( Array(new_item) - proxy_association.owner.entries )
     end
@@ -42,4 +47,10 @@ class Graph < ApplicationRecord
   def active_or_interventions?
     status.include?('interventions') || active?
   end
+
+  # def make_new_entry
+  #   byebug
+  #   entries.create(:symbol => type)
+  #   # ad.type => "Admin"
+  # end
 end

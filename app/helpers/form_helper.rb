@@ -20,7 +20,7 @@ module FormHelper
   end
 
   def graph_entries(graph)
-    5.times { graph.entries.build({user_id: @graph.user.id}) } if graph.entries.empty?
+    5.times { graph.entries.build({user_id: graph.user.id, symbol: graph.type.upcase}) } if graph.entries.empty?
     graph
   end
 end
