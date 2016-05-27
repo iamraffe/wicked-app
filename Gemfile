@@ -16,9 +16,9 @@ gem 'font-awesome-rails'
 gem 'd3-rails'
 gem 'animate-rails'
 gem 'bootstrap-select-rails'
+gem 'faker'
 group :development, :test do
   gem 'byebug', platform: :mri
-  gem 'faker'
 end
 
 group :development do
