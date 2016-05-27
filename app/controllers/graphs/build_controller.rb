@@ -15,6 +15,11 @@ class Graphs::BuildController < ApplicationController
   end
 
   def update
+    @graph = Graph.where(user_id: params[graph][:user_id]).where(type: params[:type]).where(status: 'active').first
+    unless @graph.nil?
+      Graph.find(params[:graph_id]).destroy
+      redirect_to wizard_path(steps.second, :graph_id => @graph.id) and return
+    end
     @graph = Graph.find(params[:graph_id])
     params[graph][:status] = step.to_s
     params[graph][:status] = 'active' if step == steps.last

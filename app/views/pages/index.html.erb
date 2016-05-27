@@ -1,3 +1,15 @@
-<h1>Pages#index</h1>
-<p>Find me in app/views/pages/index.html.erb</p>
-<%= link_to 'Create new Graph', graph_new_build_path({graph: {type: 'Afp'}}), method: 'post' %>
+<div class="row">
+  <div class="jumbotron col-xs-12">
+    <div class="row">
+      <div class="col-xs-10 col-xs-offset-1">
+        <h1>Welcome to our demo!</h1>
+        <p>Bacon ipsum dolor amet bresaola bacon pork chop spare ribs chicken fatback biltong turkey salami beef ribs tenderloin kevin pig. Brisket bresaola sausage fatback meatloaf, tail short loin chuck ribeye capicola picanha beef ribs sirloin. Pork loin rump jerky biltong, tri-tip picanha tenderloin kielbasa beef ribs corned beef pancetta pork belly cow. Beef ribs pig shoulder drumstick tongue. Corned beef fatback chuck andouille picanha alcatra t-bone. Prosciutto pastrami rump, short loin kielbasa ham hock chicken jerky short ribs. Pork belly pork chop porchetta brisket.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-4 col-xs-offset-8">
+        <%= link_to 'Create new Afp Graph', graph_new_build_path({graph: {type: 'Afp'}}), method: 'post', class: "btn btn-block btn-warning" %>
+      </div>
+    </div>
+  </div>
+</div>
