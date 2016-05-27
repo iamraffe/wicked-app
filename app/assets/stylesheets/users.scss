@@ -1,3 +1,14 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.user-row{
+  img{
+    width: 48px;
+    height: 48px;
+  }
+}
+
+.dataTables_filter, #users-index-table_paginate{
+  float: right;
+}
