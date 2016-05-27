@@ -1,4 +1,8 @@
 class GraphsController < ApplicationController
+  def index
+    @graphs = Graph.all.where(status: 'active')
+  end
+
   def show
     @graph = Graph.find(params[:id])
     respond_to do |format|

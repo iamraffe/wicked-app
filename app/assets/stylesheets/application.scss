@@ -11,11 +11,11 @@ EXTERNAL LIBS
 
  */
 @import "bootstrap-sprockets";
-// @import "bootswatch/superhero/variables";
+@import "bootswatch/paper/variables";
 
 $grid-gutter-width: 5px;
 
 @import "bootstrap";
 @import "font-awesome";
-// @import "bootswatch/superhero/bootswatch";
+@import "bootswatch/paper/bootswatch";
 @import "bootstrap-select";

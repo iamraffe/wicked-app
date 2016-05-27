@@ -5,6 +5,6 @@
 <%= form_for @graph, url: wizard_path do |f| %>
   <input type="hidden" value="<%= @graph.type %>" name="type">
   <%= f.hidden_field :status, value: @graph.status %>
-  <%= f.select :user_id, options_for_select(User.all.collect{|m| [m.full_name, m.id]}), {:include_blank => "Select patient"}, {class: "js--add--patient", "data-live-search" => "true"}  %>
+  <%= f.select :user_id, User.all.collect{|m| [m.full_name, m.id]}, {:include_blank => "Select patient"}, {class: "js--add--patient", "data-live-search" => "true"}  %>
   <%= f.button :submit %>
 <% end %>

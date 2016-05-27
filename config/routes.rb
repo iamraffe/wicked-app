@@ -7,5 +7,7 @@ Rails.application.routes.draw do
     resources :build, controller: 'graphs/build'
   end
 
+  resources :users
+
   post '/graphs/new/build', to: 'graphs/build#create', as: 'graph_new_build'
 end

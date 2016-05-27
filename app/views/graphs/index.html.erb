@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-sm-10 col-sm-offset-1">
+    <% @graphs.each do |graph| %>
+      <div class="row">
+        <div class="col-sm-8">
+          <ul class="graph list-unstyled">
+            <li class="graph-type">Type: <%= graph.type %></li>
+            <li class="graph-patitn">Patient: <%= link_to graph.user.full_name, user_path(graph.user), class: "btn btn-link" %></li>
+            <li class="graph-created-at">Created: <%= time_ago_in_words(graph.created_at) %></li>
+            <li class="graph-updated-at">Last updated: <%= time_ago_in_words(graph.updated_at) %></li>
+          </ul>
+        </div>
+        <div class="col-sm-2">
+          <%= link_to "Edit", "/graphs/#{graph.id}/build/add_patient", class: "btn-link btn" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
