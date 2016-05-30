@@ -67,7 +67,7 @@ DVE.Graph.prototype.draw_interventions = function () {
               return this.left_border(d);
             }.bind(this))
             .attr("y1", function(d,i){
-              return (25*d.index)-60;
+              return (37.5*d.index)-60;
             })
             .attr("x2", function(d,i){
               return this.left_border(d);
@@ -94,7 +94,7 @@ DVE.Graph.prototype.draw_interventions = function () {
             }.bind(this))
             .attr('y', function(d,i){
               // return (25*d.index)+65;
-              return (25*d.index)-62.5;
+              return (37.5*d.index)-62.5;
             }.bind(this))
             .attr("class", function(d){
               return "intervention-bg intervention--type--"+d.type+" intervention-bg-"+d.id;
@@ -117,7 +117,7 @@ DVE.Graph.prototype.draw_interventions = function () {
             }.bind(this))
             .attr('y', function(d,i){
               // return (25*d.index)+65;
-              return (25*d.index)-67.5;
+              return (37.5*d.index)-67.5;
             }.bind(this))
             .attr("class", function(d){
               return "intervention-text intervention--type--"+d.type+" intervention-text-"+d.id;

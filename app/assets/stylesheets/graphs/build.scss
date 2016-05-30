@@ -25,7 +25,7 @@ GRAPH BUILD COMMON
     margin-bottom: 25px;
   }
 }
-  
+
 /*
 
 GRAPH BUILD STEPS
@@ -52,5 +52,9 @@ GRAPH BUILD STEPS
 .add-interventions-step{
   .intervention-form{
     display:none;
+
+    label{
+      margin-top: 15px;
+    }
   }
 }

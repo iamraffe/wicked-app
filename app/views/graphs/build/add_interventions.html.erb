@@ -16,15 +16,19 @@
               <%= e.hidden_field :type %>
               <div class="form-group">
                 <div class="col-sm-6">
+                  <%= e.label :start, "Start Date" %>
                   <%= e.date_field :start, class: "form-control" %>
                 </div>
                 <div class="col-sm-6">
+                  <%= e.label :end, "End Date" %>
                   <%= e.date_field :end, class: "form-control" %>
                 </div>
                 <div class="col-sm-6">
+                  <%= e.label :title, "Medication" %>
                   <%= e.text_field :title, class: "form-control" %>
                 </div>
                 <div class="col-sm-6">
+                  <%= e.label :description, "Dosage" %>
                   <%= e.text_field :description, class: "form-control" %>
                 </div>
               </div>
@@ -44,9 +48,22 @@
           <div id="graph"></div>
         </div>
       </div>
+      <div class="col-sm-4">
+
+      </div>
       <div class="form-group col-sm-4 col-sm-offset-8">
         <%= link_to "Continue", next_wizard_path, class:"btn btn-primary form-control btn-continue" %>
       </div>
     </section>
+  </div>
+  <div class="row">
+    <div class="col-sm-3">
+      <ul id="interventions-list" class="list-unstyled interventions-list">
+        <% @graph.interventions.each do |intervention| %>
+          <li><%= "#{intervention.title}: #{intervention.description} - #{intervention.start} - #{intervention.end}" unless intervention.id.nil? %></li>
+        <% end %>
+        <li><%= "No interventions have been added yet" if @graph.interventions.select{|i| !i.id.nil? }.blank? %></li>
+      </ul>
+    </div>
   </div>
 </div>
