@@ -5,7 +5,7 @@
         <div class="col-sm-8">
           <header class="row">
             <div class="col-xs-12">
-              <h1>Patient name:  <span class="patient-name"><%= @graph.user.full_name  %></span> <span class="patient-avatar"><img src="<%= @graph.user.avatar %>" alt="<%= @graph.user.full_name %>" class="img-responsive img-circle pull-right"></span></h1>
+              <h1><span class="graph-type"><%= @graph.type.underscore.humanize.titleize.upcase %></span>  <span class="patient-name"><%= @graph.user.full_name  %></span> <span class="patient-avatar"><img src="<%= @graph.user.avatar %>" alt="<%= @graph.user.full_name %>" class="img-responsive img-circle pull-right"></span></h1>
               <hr>
             </div>
           </header>
