@@ -1,9 +1,9 @@
 class Graphs::BuildController < ApplicationController
   include Wicked::Wizard
 
-  steps :add_patient, :add_entries, :add_confirmation
+  # steps :add_patient, :add_entries, :add_confirmation
 
-  # steps :add_patient, :add_entries, :add_interventions, :add_confirmation
+  steps :add_patient, :add_entries, :add_interventions, :add_confirmation
 
   def show
     @graph = Graph.find(params[:graph_id])
@@ -24,7 +24,10 @@ class Graphs::BuildController < ApplicationController
     params[graph][:status] = step.to_s
     params[graph][:status] = 'active' if step == steps.last
     @graph.update_attributes(graph_params)
-    render_wizard @graph
+    respond_to do |format|
+      format.html {render_wizard @graph}
+      format.js {}
+    end
   end
 
   def create
@@ -47,7 +50,7 @@ class Graphs::BuildController < ApplicationController
     def graph_params
       params.require(graph).permit(
         :type, :user_id, :status,
-        interventions_attributes: [:start,:end,:title,:description,:index,:type,:chart_type,:id],
-        entries_attributes: [:date,:value,:symbol,:id, :user_id])
+        interventions_attributes: [:start,:end,:title,:description,:index,:type,:chart_type],
+        entries_attributes: [:date,:value,:symbol, :user_id])
     end
 end

@@ -1,0 +1,1 @@
+console.log(<%= raw(@graph.to_json) %>)

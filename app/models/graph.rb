@@ -1,13 +1,13 @@
 class Graph < ApplicationRecord
   # Interventions
-  # has_many :patient_events
-  # has_many :interventions, through: :patient_events do
-  #   def <<(new_item)
-  #     super( Array(new_item) - proxy_association.owner.interventions )
-  #   end
-  # end
-  # validates :interventions, presence: true, :if => :active_or_interventions?
-  # accepts_nested_attributes_for :interventions
+  has_many :patient_events
+  has_many :interventions, through: :patient_events do
+    # def <<(new_item)
+    #   super( Array(new_item) - proxy_association.owner.interventions )
+    # end
+  end
+  validates :interventions, presence: true, :if => :active_or_interventions?
+  accepts_nested_attributes_for :interventions
 
   # Entries
   has_many :patient_entries

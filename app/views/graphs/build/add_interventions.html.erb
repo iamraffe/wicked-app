@@ -1,0 +1,38 @@
+<div class="add-interventions-step">
+  <div class="col-sm-6 col-sm-offset-3">
+    <header class="row">
+      <h1>Great! Do you have any interventions to add?</h1>
+      <h2>Otherwise continue to save the chart.</h2>
+    </header>
+
+    <%= form_for graph_interventions(@graph), url: wizard_path, remote: true do |f| %>
+      <input type="hidden" value="<%= @graph.type %>" name="type">
+      <%= f.hidden_field :status, value: @graph.status %>
+      <%= f.fields_for :interventions do |e| %>
+        <div class="row">
+          <%= e.hidden_field :user_id %>
+          <%= e.hidden_field :type %>
+          <div class="form-group">
+            <div class="col-sm-6">
+              <%= e.date_field :start, class: "form-control" %>
+            </div>
+            <div class="col-sm-6">
+              <%= e.date_field :end, class: "form-control" %>
+            </div>
+            <div class="col-sm-6">
+              <%= e.text_field :title, class: "form-control" %>
+            </div>
+            <div class="col-sm-6">
+              <%= e.text_field :description, class: "form-control" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <div class="row">
+        <div class="form-group col-sm-4 col-sm-offset-8">
+          <%= f.submit "Continue", class:"btn btn-primary form-control btn-continue" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
