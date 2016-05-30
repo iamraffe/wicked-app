@@ -88,7 +88,7 @@ DVE.Graph.prototype.render_single = function () {
                 return 0;
               }
             }.bind(this));
-          console.log(this.data.entries)
+            
           this.svg.append("g")
             .classed("line", true)
           .selectAll("path")

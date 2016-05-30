@@ -17,78 +17,61 @@ DVE.Graph.prototype.draw_interventions = function () {
 
     var bg_color = d3.scale.ordinal().range(['#B7BCA6', '#89907C', '#696D5F'])
 
-    var minDate = this.data.entries[0].date;
+    this.minDate = this.data.entries[0].date;
 
-    var maxDate = this.data.entries[this.data.entries.length - 1].date;
+    this.maxDate = this.data.entries[this.data.entries.length - 1].date;
 
     x.domain([
-      new Date(minDate.getFullYear()-1, minDate.getMonth()+1,minDate.getDate()),
-      new Date(maxDate.getFullYear()+1, maxDate.getMonth()+1,maxDate.getDate())
+      new Date(this.minDate.getFullYear()-1, this.minDate.getMonth()+1,this.minDate.getDate()),
+      new Date(this.maxDate.getFullYear()+1, this.maxDate.getMonth()+1,this.maxDate.getDate())
     ]);
 
     y.domain([d3.min(this.data.entries, function(d) { return d.value; }), d3.max(this.data.entries, function(d) { return d.value; })]);
 
-    function left_border(d){
-      return x(d.start) < x(minDate) ? x(minDate) : x(d.start);
-    }
+    this.data.interventions.forEach(function(d, i) {
+      d.start = this.parseDate(d.start);
+      d.end = this.parseDate(d.end);
+      d.title = d.title;
+      d.description = d.description;
+      d.index = i;
+    }.bind(this));
 
-    function right_border(d){
-      return x(d.end) > x(maxDate) ? x(maxDate) : x(d.end);
-    }
-
-        var parseInterventionDate = d3.time.format("%Y-%m-%d").parse;
-
-        this.data.interventions.forEach(function(d, i) {
-          d.start = this.parseDate(d.start);
-          d.end = this.parseDate(d.end);
-          d.title = d.title;
-          d.description = d.description;
-          d.index = i;
-        }.bind(this));
-
-        var svg = this.svg;
+    var svg = this.svg;
 
     if(this.number_of_symbols < this.data.entries.length){
-
-
 
           var rect = svg.selectAll(".interventions").data(this.data.interventions);
           var rectEnter = rect.enter().append("g");
 
           rectEnter.style("opacity", 1)
           .attr('width', function(d,i){
-            return right_border(d) - left_border(d);
+            return this.right_border(d) - this.left_border(d);
           }.bind(this))
           .attr('x', function(d) {
-              return left_border(d);
+              return this.left_border(d);
           }.bind(this))
           .attr('y', function(d,i){
             return (25*d.index)-35;
           }.bind(this))
           .attr('height', function(d,i) {
             return this.height-(25*d.index)+35
-            // return 2
           }.bind(this))
-          // .style("border-left", function(d,i){
-          //   return "1px dotted " + color(d.type)
-          // }.bind(this))
           .attr("fill", function(d){
             return "none";
-              // return color(d.type);
           }.bind(this))
           .append("line")
             .attr("class", function(d){
               return "interventions intervention--type--"+d.type+" intervention-"+d.id;
             }.bind(this))
             .attr("x1", function(d,i){
-              return left_border(d);
-            })
+              return this.left_border(d);
+            }.bind(this))
             .attr("y1", function(d,i){
               return (25*d.index)-60;
             })
             .attr("x2", function(d,i){
-              return left_border(d);
-            })
+              return this.left_border(d);
+            }.bind(this))
             .attr("y2", function(d,i){
               return this.height
             }.bind(this))
@@ -103,10 +86,11 @@ DVE.Graph.prototype.draw_interventions = function () {
             .style("opacity", 1)
             .attr("height", 17.5)
             .attr('width', function(d,i){
-              return right_border(d) - left_border(d);
+              console.log(d, this.right_border(d), this.left_border(d))
+              return Math.abs(this.right_border(d) - this.left_border(d));
             }.bind(this))
             .attr('x', function(d) {
-                return left_border(d);
+                return this.left_border(d);
             }.bind(this))
             .attr('y', function(d,i){
               // return (25*d.index)+65;
@@ -129,7 +113,7 @@ DVE.Graph.prototype.draw_interventions = function () {
             })
             .style("opacity", 1)
             .attr('x', function(d) {
-                return left_border(d)+5;
+                return this.left_border(d)+5;
             }.bind(this))
             .attr('y', function(d,i){
               // return (25*d.index)+65;

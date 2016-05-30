@@ -49,9 +49,7 @@ DVE.Graph = function (data, graph_type) {
 
   // console.log(this.data.entries);
   this.data.entries.forEach(function(d) {
-
     var date = this.parseDate(d.date);
-    console.log(date)
     this.date_axis.push(date);
     d.date = date;
     d.value = +d.value;
