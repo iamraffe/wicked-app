@@ -12,3 +12,8 @@ $(document).on("turbolinks:load ready", function(){
     $('#graphs-index-table').DataTable();
   }
 });
+
+$(document).on('click', "#add-intervention", function(){
+  console.log("click")
+  $("#intervention-form").slideToggle();
+});

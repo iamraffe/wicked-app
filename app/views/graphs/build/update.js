@@ -1,1 +1,2 @@
-console.log(<%= @graphs.to_json %>);
+$("#intervention-form form").trigger("reset");
+$("#intervention-form").slideToggle();

@@ -25,7 +25,7 @@ module FormHelper
   end
 
   def graph_interventions(graph)
-    graph.interventions.build({user_id: graph.user.id, type: "Medication"}) if graph.interventions.empty?
+    graph.interventions.build({user_id: graph.user.id, type: "Medication"})
     graph
   end
 end
