@@ -1,7 +1,34 @@
-<div class="row">
-  <div class="col-xs-10 col-xs-offset-1">
-    <div id="graph-container" class="js--graph--wrapper" data-type="<%= @graph.type.underscore %>" data-id="<%= @graph.id %>">
-      <div id="graph"></div>
+<section class="graph-viewer">
+  <div class="row">
+    <div class="col-sm-9 col-sm-offset-3">
+      <section class="row">
+        <div class="col-sm-8">
+          <header class="row">
+            <div class="col-xs-12">
+              <h1>Patient name:  <span class="patient-name"><%= @graph.user.full_name  %></span></h1>
+              <hr>
+            </div>
+          </header>
+          <div class="row">
+            <div id="graph-container" class="js--graph--wrapper" data-type="<%= @graph.type.underscore %>" data-id="<%= @graph.id %>">
+              <div id="graph"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="row">
+        <div class="col-sm-8">
+          <div class="row">
+            <div class="col-sm-6">
+              <%= link_to "Make Another Chart", root_path, class: "btn btn-light btn-block btn-slim" %>
+              <%= link_to "View #{@graph.user.first_name}'s profile", "/users/#{@graph.user.id}", class: "btn btn-light btn-block btn-slim" %>
+            </div>
+            <div class="col-sm-6">
+              <button id='export-graph' class='btn btn-success form-control'>Export</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
+</section>

@@ -1,10 +1,13 @@
-<%= @graph.to_json %>
-
-<%= @graph.user.to_json %>
-
-<%= form_for @graph, url: wizard_path do |f| %>
-  <input type="hidden" value="<%= @graph.type %>" name="type">
-  <%= f.hidden_field :status, value: @graph.status %>
-  <%= f.select :user_id, User.all.collect{|m| [m.full_name, m.id]}, {:include_blank => "Select patient"}, {class: "js--add--patient", "data-live-search" => "true"}  %>
-  <%= f.button :submit %>
-<% end %>
+<div class="add-patient-step col-xs-6">
+  <header>
+    <h1>Please select a patient from the database using the autocomplete form to continue</h1>
+  </header>
+  <%= form_for @graph, url: wizard_path do |f| %>
+    <input type="hidden" value="<%= @graph.type %>" name="type">
+    <%= f.hidden_field :status, value: @graph.status %>
+    <%= f.select :user_id, User.all.collect{|m| [m.full_name, m.id]}, {:include_blank => "Select patient"}, {class: "js--add--patient form-control", "data-live-search" => "true"}  %>
+    <div class="col-sm-4 col-sm-offset-8 form-group">
+      <%= f.submit "Continue", class: "btn btn-primary btn-continue form-control" %>
+    </div>
+  <% end %>
+</div>

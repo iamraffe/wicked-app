@@ -1,27 +1,32 @@
-<%= @graph.to_json %>
+<div class="add-entries-step">
+  <div class="col-sm-6">
+    <header class="row">
+      <h1>Please add the <%= @graph.type.underscore.humanize.titleize.upcase %> data for: <span class="patient-name"> <%= @graph.user.full_name %></span></h1>
+      <h2>Make sure to include the date for each test.</h2>
+    </header>
 
-<h1><%= @graph.user.full_name %></h1>
-
-<%= form_for graph_entries(@graph), url: wizard_path do |f| %>
-  <input type="hidden" value="<%= @graph.type %>" name="type">
-  <%= f.hidden_field :status, value: @graph.status %>
-  <%= f.fields_for :entries do |e| %>
-    <div class="row">
-      <%= e.hidden_field :user_id %>
-      <%= e.hidden_field :symbol %>
-      <div class="form-group">
-        <div class="col-sm-3">
-          <%= e.date_field :date, class: "form-control" %>
+    <%= form_for graph_entries(@graph), url: wizard_path do |f| %>
+      <input type="hidden" value="<%= @graph.type %>" name="type">
+      <%= f.hidden_field :status, value: @graph.status %>
+      <%= f.fields_for :entries do |e| %>
+        <div class="row">
+          <%= e.hidden_field :user_id %>
+          <%= e.hidden_field :symbol %>
+          <div class="form-group">
+            <div class="col-sm-6">
+              <%= e.date_field :date, class: "form-control" %>
+            </div>
+            <div class="col-sm-6">
+              <%= e.number_field :value, class: "form-control" %>
+            </div>
+          </div>
         </div>
-        <div class="col-sm-3">
-          <%= e.number_field :value, class: "form-control" %>
+      <% end %>
+      <div class="row">
+        <div class="form-group col-sm-4 col-sm-offset-8">
+          <%= f.submit "Continue", class:"btn btn-primary form-control btn-continue" %>
         </div>
       </div>
-    </div>
-  <% end %>
-  <div class="row">
-    <div class="form-group col-sm-4 col-sm-offset-8">
-      <%= f.submit "Continue", class:"btn btn-primary form-control btn-block" %>
-    </div>
+    <% end %>
   </div>
-<% end %>
+</div>

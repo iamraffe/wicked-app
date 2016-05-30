@@ -1,3 +1,50 @@
-// Place all the styles related to the graphs/build controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+/*
+
+GRAPH BUILD COMMON
+
+ */
+
+.btn-continue{
+  margin-top: 25px;
+  float: right;
+}
+
+.add-patient-step,
+.add-entries-step,
+.add-interventions-step,
+.add-confirmation-step{
+  header{
+    h1{
+      font-weight: 400;
+      font-size: 14px;
+    }
+    h2{
+      font-weight: 200;
+      font-size: 12px;
+    }
+    margin-bottom: 25px;
+  }
+}
+  
+/*
+
+GRAPH BUILD STEPS
+
+ */
+
+.add-patient-step{
+  header{
+    h1{
+      font-weight: 400;
+      font-size: 14px;
+    }
+    margin-bottom: 25px;
+  }
+  .bootstrap-select{
+    width: 100% !important;
+  }
+}
+
+.add-entries-step{
+
+}

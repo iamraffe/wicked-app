@@ -40,7 +40,12 @@
                 <td><strong><%= graph.type.upcase %></strong></td>
                 <td><%= time_ago_in_words(graph.created_at) %> ago</td>
                 <td><%= time_ago_in_words(graph.updated_at) %> ago</td>
-                <td><%= link_to "Edit", "/graphs/#{graph.id}/build/add_patient", class: "btn-link btn" %></td>
+                <td>
+                  <ul class="list-unstyled">
+                    <li><%= link_to "Show", "/graphs/#{graph.id}", class: "btn-link btn" %></li>
+                    <li><%= link_to "Edit", "/graphs/#{graph.id}/build/add_patient", class: "btn-link btn" %></li>
+                  </ul>
+                </td>
               </tr>
             <% end %>
           </tbody>
