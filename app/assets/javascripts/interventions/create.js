@@ -97,7 +97,7 @@ DVE.Graph.prototype.add_intervention = function (data) {
     }.bind(this))
     .attr('y', function(d,i){
       // return (25*d.index)+65;
-      return (25*d.index)-50;
+      return (25*d.index)-67.5;
     }.bind(this))
     .attr("class", function(d){
       return "intervention-text intervention--type--"+d.type+" intervention-text-"+d.id;
@@ -106,5 +106,5 @@ DVE.Graph.prototype.add_intervention = function (data) {
     .style("font-weight", "bold")
     .style("font-size", 9)
     .style("text-transform", "uppercase")
-    .attr("fill", "white");
+    .attr("fill", "black");
 }
