@@ -1,0 +1,5 @@
+var interventions = <%= raw(@graph.interventions.to_json) %>;
+var graph = <%= raw(@graph.to_json) %>
+$("#intervention-form form").trigger("reset");
+$("#intervention-form").slideToggle();
+
