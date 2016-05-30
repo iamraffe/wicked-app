@@ -31,7 +31,7 @@ DVE.Graph.prototype.AFP = function(){
     this.draw_interventions();
   }
   else{
-    // this.draw_interventions();
+    this.draw_interventions();
 
     this.render_single();
   }
