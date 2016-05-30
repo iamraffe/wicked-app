@@ -1,15 +1,51 @@
-<div class="row">
+<div class="welcome-screen row">
   <div class="jumbotron col-xs-12">
     <div class="row">
       <div class="col-xs-10 col-xs-offset-1">
-        <h1>Welcome to our demo!</h1>
-        <p>Bacon ipsum dolor amet bresaola bacon pork chop spare ribs chicken fatback biltong turkey salami beef ribs tenderloin kevin pig. Brisket bresaola sausage fatback meatloaf, tail short loin chuck ribeye capicola picanha beef ribs sirloin. Pork loin rump jerky biltong, tri-tip picanha tenderloin kielbasa beef ribs corned beef pancetta pork belly cow. Beef ribs pig shoulder drumstick tongue. Corned beef fatback chuck andouille picanha alcatra t-bone. Prosciutto pastrami rump, short loin kielbasa ham hock chicken jerky short ribs. Pork belly pork chop porchetta brisket.</p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-4 col-xs-offset-8">
-        <%= link_to 'Create new Afp Graph', graph_new_build_path({graph: {type: 'Afp'}}), method: 'post', class: "btn btn-block btn-warning" %>
+        <h1>Welcome to our demo application</h1>
+        <h2>Wicked Graphs is all about creating beautiful and dynamic graphs. Please select one of the options below to start building your graph.</h2>
       </div>
     </div>
   </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <hr>
+  </div>
+  <article class="col-xs-4">
+    <%= link_to graph_new_build_path({graph: {type: 'Afp'}}), method: 'post', class: "chart-option" do %>
+      <%= image_tag "molecule-3.png", class: "img-responsive" %>
+      <h1 class="text-center btn btn-link">AFP</h1>
+    <% end %>
+  </article>
+  <article class="col-xs-4">
+    <%= link_to graph_new_build_path({graph: {type: 'Calcium'}}), method: 'post', class: "chart-option" do %>
+      <%= image_tag "molecule-2.png", class: "img-responsive" %>
+      <h1 class="text-center btn btn-link">Calcium</h1>
+    <% end %>
+  </article>
+  <article class="col-xs-4">
+    <%= link_to graph_new_build_path({graph: {type: 'Insulin'}}), method: 'post', class: "chart-option" do %>
+      <%= image_tag "molecule-1.png", class: "img-responsive" %>
+      <h1 class="text-center btn btn-link">Insulin</h1>
+    <% end %>
+  </article>
+  <article class="col-xs-4">
+    <%= link_to graph_new_build_path({graph: {type: 'Testosterone'}}), method: 'post', class: "chart-option" do %>
+      <%= image_tag "molecule.png", class: "img-responsive" %>
+      <h1 class="text-center btn btn-link">Testosterone</h1>
+    <% end %>
+  </article>
+  <article class="col-xs-4">
+    <%= link_to graph_new_build_path({graph: {type: 'Tsh'}}), method: 'post', class: "chart-option" do %>
+      <%= image_tag "molecular-structure.png", class: "img-responsive" %>
+      <h1 class="text-center btn btn-link">TSH</h1>
+    <% end %>
+  </article>
+  <article class="col-xs-4">
+    <%= link_to graph_new_build_path({graph: {type: 'VitaminD'}}), method: 'post', class: "chart-option" do %>
+      <%= image_tag "hexagons.png", class: "img-responsive" %>
+      <h1 class="text-center btn btn-link">Vitamin D</h1>
+    <% end %>
+  </article>
 </div>

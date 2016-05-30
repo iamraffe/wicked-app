@@ -4,6 +4,7 @@ FONTS
  */
 
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url(https://fonts.googleapis.com/css?family=Nova+Mono);
 
 /*
 
@@ -19,6 +20,8 @@ $grid-gutter-width: 5px;
 @import "font-awesome";
 @import "bootswatch/paper/bootswatch";
 @import "bootstrap-select";
-
+@import "components.scss";
 @import "users.scss";
 @import "graphs.scss";
+@import "pages.scss";
+
