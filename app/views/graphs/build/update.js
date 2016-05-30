@@ -1,1 +1,1 @@
-console.log(<%= raw(@graph.to_json) %>)
+console.log(<%= @graphs.to_json %>);
