@@ -18,6 +18,7 @@ gem 'animate-rails'
 gem 'bootstrap-select-rails'
 gem 'faker'
 gem 'rmagick'
+gem 'momentjs-rails'
 
 group :development, :test do
   gem 'byebug', platform: :mri

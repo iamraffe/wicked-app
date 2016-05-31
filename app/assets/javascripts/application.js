@@ -17,4 +17,5 @@
 //= require graphs/dve/init
 //= require bootstrap-sprockets
 //= require bootstrap-select
+//= require moment
 //= require_tree .

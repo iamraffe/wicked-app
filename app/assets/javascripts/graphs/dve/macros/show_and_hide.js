@@ -1,4 +1,4 @@
-$(document).on('ready page:change', function(e){
+$(document).on('turbolinks:load', function(e){
   var opacity_values = {
     bar: 0.1,
     line: 1,
