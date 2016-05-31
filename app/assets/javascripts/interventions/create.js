@@ -89,7 +89,11 @@ DVE.Graph.prototype.add_intervention = function (data) {
     .enter()
     .append("text")
     .html(function(d){
-      return d.title+" - "+d.description;
+      var text = d.title;
+      if(d.description !== ""){
+        text += " - "+d.description;
+      }
+      return text;
     })
     .style("opacity", 1)
     .attr('x', function(d) {

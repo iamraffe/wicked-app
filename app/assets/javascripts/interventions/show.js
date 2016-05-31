@@ -109,7 +109,11 @@ DVE.Graph.prototype.draw_interventions = function () {
             .enter()
             .append("text")
             .html(function(d){
-              return d.title+" - "+d.description;
+              var text = d.title;
+              if(d.description !== ""){
+                text += " - "+d.description;
+              }
+              return text;
             })
             .style("opacity", 1)
             .attr('x', function(d) {
@@ -128,32 +132,6 @@ DVE.Graph.prototype.draw_interventions = function () {
             .style("text-transform", "uppercase")
             .attr("fill", "black");
     }
-    else{
-
-      var new_interventions = svg.selectAll(".interventions").data(this.data.interventions);
-
-      var text = new_interventions.enter().append("text");
-
-      console.log("after enter", this.data.interventions)
-
-      text.attr("x", (this.width/3)*2)
-      .attr("y", function(d,i){
-        console.log(this.height, this.margin)
-        return this.height + ((i+1)*this.margin.bottom/4) + 15
-      }.bind(this))
-      .attr("class", function(d){
-        return "interventions intervention--type--"+d.type+" intervention-"+d.id;
-      }.bind(this))
-      .style('font-family', '"Trebuchet MS", Helvetica, sans-serif')
-      .style('font-size', 11)
-      .style("fill", function(d) {
-          return this.color(d.type);
-      }.bind(this))
-      .html(function(d,i){
-        return d.type.capitalize()+"<br>: "+d.title.capitalize(true)+" - "+d.description.capitalize(true);
-      });
-    }
-
   }
 
 };
