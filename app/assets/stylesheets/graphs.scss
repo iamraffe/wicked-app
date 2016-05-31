@@ -49,3 +49,12 @@ GRAPHS - SHOW
   margin-right: 15px;
   vertical-align: -5px;
 }
+
+  .svg-controls{
+    margin-top: 100px;
+
+    .intervention-controls, .chart-controls{
+      margin-top: 15px;
+      padding-left: 15px;
+    }
+  }

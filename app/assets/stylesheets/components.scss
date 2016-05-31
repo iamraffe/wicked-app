@@ -14,3 +14,131 @@ NAV
     height: 35px;
   }
 }
+
+/*
+
+BUTTONS
+
+ */
+
+$text-beige: #CFCDC5;
+$button-black-dark: #121921;
+$button-black-light: #19222D;
+
+$light-button-font-color: #4A494C;
+$light-button-light-background: #dddad5;
+$light-button-dark-background: #d4d0c9;
+
+.btn-dark{
+  // background-image: image-url("black_button_background.svg");
+  background: $button-black-light;
+  background-size: contain;
+  color: $text-beige;
+  font-weight: bold;
+  line-height: 2;
+  font-size: 18px;
+  outline: none !important;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+
+  &:hover{
+    color: lighten($text-beige, 10%);
+  }
+
+  &:active, &:focus{
+    color: lighten($text-beige, 5%);
+    background: $button-black-light;
+    -webkit-box-shadow: inset 0 25px 5px darken($button-black-dark, 2.5%);
+    box-shadow: inset 0 25px 5px darken($button-black-dark, 2.5%);
+  }
+
+  // &:focus{
+  //   color: lighten($text-beige, 5%);
+  //   background: lighten($button-black-dark, 2.5%);
+  // }
+}
+
+
+.btn-light{
+  // background-image: image-url("light_button_background.svg");
+  background-color: lighten($light-button-light-background, 2.5%);
+  background-size: contain;
+  color: $light-button-font-color;
+  font-weight: bold;
+  line-height: 2;
+  font-size: 18px;
+  outline: none !important;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+
+  &:hover{
+    color: lighten($light-button-font-color, 10%);
+  }
+
+  &:active, &:focus{
+    color: lighten($light-button-font-color, 5%);
+    background: lighten($light-button-light-background, 2.5%);
+    -webkit-box-shadow: inset 0 12.5px 5px darken($light-button-dark-background, 2.5%);
+    box-shadow: inset 0 12.5px 5px darken($light-button-dark-background, 2.5%);
+  }
+}
+
+
+.btn-slim{
+  font-size: 14px;
+  padding: 0px 12px;
+  line-height: 1.75;
+}
+
+.btn-header{
+  cursor: default;
+  border: 1px solid transparent;
+  border-radius: 0;
+  text-align: center;
+  position: relative;
+  margin-bottom: 5px;
+
+  &:hover, &:active, &:focus{
+    font-size: 14px;
+    padding: 0px 12px;
+    line-height: 1.75;
+    color: #CFCDC5;
+  }
+
+  .fa{
+    position: absolute;
+    left: 7.5px;
+    top: 5px;
+  }
+
+  .badge{
+    position: absolute;
+    right: 7.5px;
+    top: 5px;
+    background-color: #E51F26;
+    font-weight: 600;
+    font-size: 8px;
+  }
+}
+
+.btn-link{
+  color: $light-button-font-color;
+  font-size: 12px;
+
+  &:hover, &:active, &:focus, &:active:focus{
+    text-decoration: none;
+    color: darken($light-button-font-color, 15%);
+    outline: none;
+  }
+
+  .text{
+    vertical-align: middle;
+  }
+}
+
+.btn-form{
+  line-height: 1.75;
+  font-size: 12px;
+  // padding-left: 33.3%;
+  // padding-right: 33.3%;
+}

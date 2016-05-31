@@ -225,8 +225,8 @@ var label = this.svg.selectAll(".label")
           console.log("X => ", d.date, this.x(d.date),  this.x(d.date)- (this.width/this.data.entries.length)/2)
           return this.x(d.date) - (this.width/this.data.entries.length)/4;
         }.bind(this))
-        .attr("fill", "blue")
-        .attr("opacity", 0.1)
+        .attr("fill", '#63B28F')
+        .attr("opacity", 0)
         .attr("width", (this.width/this.data.entries.length)/2)
         .attr("y", function(d) { return this.y(d.value); }.bind(this))
         .attr("height", function(d) { return this.height - this.y(d.value); }.bind(this));
