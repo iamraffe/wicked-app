@@ -88,7 +88,7 @@ DVE.Graph.prototype.render_single = function () {
                 return 0;
               }
             }.bind(this));
-            
+
           this.svg.append("g")
             .classed("line", true)
           .selectAll("path")
@@ -214,29 +214,20 @@ var label = this.svg.selectAll(".label")
       .style("font-size", 12)
       .attr("text-anchor", "end")
       .text(function(d) { return " " + d.symbol; });
-    // Add the text
-    // this.svg.selectAll('.text-values')
-    //     .data(this.data.entries)
-    //     .enter()
-    //     .append("text")
-    //     .style('font-family', '"Trebuchet MS", Helvetica, sans-serif')
-    //     .style("font-weight", "bold")
-    //     .style("font-size", 10)
-    //     .attr("id", function(d,i){
-    //       return 'val'+d.symbol.replace(/\s+/g, '')+i;
-    //     })
-    //     .attr('class', function(d,i){
-    //       return 'text-values tag'+d.symbol.replace(/\s+/g, '');
-    //     })
-    //     // .attr('class', 'text-values')
-    //     .attr("transform", function(d) {
-    //       return "translate("+(this.x(d.date))+","+(this.y(d.value))+")";
-    //     }.bind(this))
-    //     .text(function(d){
-    //       return d.value;
-    //     })
-    //     .style("fill", function(d) { // Add the colours dynamically
-    //         return this.color(d.symbol);
-    //     }.bind(this));
 
+  // this.x = d3.time.scale().range([this.width/this.data.entries.length/2, this.width-this.width/this.data.entries.length/2]);
+
+  this.svg.selectAll(".bar")
+        .data(this.data.entries)
+      .enter().append("rect")
+        .attr("class", "bar")
+        .attr("x", function(d) {
+          console.log("X => ", d.date, this.x(d.date),  this.x(d.date)- (this.width/this.data.entries.length)/2)
+          return this.x(d.date) - (this.width/this.data.entries.length)/4;
+        }.bind(this))
+        .attr("fill", "blue")
+        .attr("opacity", 0.1)
+        .attr("width", (this.width/this.data.entries.length)/2)
+        .attr("y", function(d) { return this.y(d.value); }.bind(this))
+        .attr("height", function(d) { return this.height - this.y(d.value); }.bind(this));
 };
