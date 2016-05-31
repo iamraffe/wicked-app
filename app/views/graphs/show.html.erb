@@ -15,7 +15,7 @@
             </div>
           </div>
         </div>
-        <div class="col-sm-4 svg-controls">
+        <div class="col-sm-4 svg-controls" style="margin-top: 125px;">
           <div class="row">
             <%= render "graphs/shared/controls" %>
           </div>
@@ -25,8 +25,8 @@
         <div class="col-sm-8">
           <div class="row">
             <div class="col-sm-6">
-              <%= link_to "Make Another Chart", root_path, class: "btn btn-light btn-block btn-slim" %>
-              <%= link_to "View #{@graph.user.first_name}'s profile", "/users/#{@graph.user.id}", class: "btn btn-light btn-block btn-slim" %>
+              <%= link_to "Make Another Chart", root_path, class: "btn btn-block" %>
+              <%= link_to "View #{@graph.user.first_name}'s profile", "/users/#{@graph.user.id}", class: "btn btn-block" %>
             </div>
             <div class="col-sm-6">
               <button id='export-graph' class='btn btn-success form-control'>Export</button>
