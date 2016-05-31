@@ -76,7 +76,7 @@ DVE.Graph.prototype.add_intervention = function (data) {
       return (37.5*d.index)-62.5;
     }.bind(this))
     .attr("class", function(d){
-      return "intervention-bg intervention--type--"+d.type+" intervention-bg-"+d.id;
+      return "interventions intervention-bg intervention--type--"+d.type+" intervention-bg-"+d.id;
     })
     .style("fill", function(d){
       return bg_color(d.type);
@@ -104,7 +104,7 @@ DVE.Graph.prototype.add_intervention = function (data) {
       return (37.5*d.index)-67.5;
     }.bind(this))
     .attr("class", function(d){
-      return "intervention-text intervention--type--"+d.type+" intervention-text-"+d.id;
+      return "interventions intervention-text intervention--type--"+d.type+" intervention-text-"+d.id;
     })
     .style('font-family', '"Trebuchet MS", Helvetica, sans-serif')
     .style("font-weight", "bold")
