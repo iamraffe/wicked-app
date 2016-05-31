@@ -17,6 +17,8 @@ gem 'd3-rails'
 gem 'animate-rails'
 gem 'bootstrap-select-rails'
 gem 'faker'
+gem 'rmagick'
+
 group :development, :test do
   gem 'byebug', platform: :mri
 end

@@ -11,7 +11,7 @@
           </header>
           <div class="row">
             <div id="graph-container" class="js--graph--wrapper" data-type="<%= @graph.type.underscore %>" data-id="<%= @graph.id %>">
-              <div id="graph"></div>
+              <div id="graph" data-name="<%= @graph.user.full_name.upcase %>"></div>
             </div>
           </div>
         </div>

@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   resources :users
 
   post '/graphs/new/build', to: 'graphs/build#create', as: 'graph_new_build'
+
+  post "/graphs/export/", to: "graphs#export"
 end

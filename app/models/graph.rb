@@ -6,7 +6,7 @@ class Graph < ApplicationRecord
     #   super( Array(new_item) - proxy_association.owner.interventions )
     # end
   end
-  validates :interventions, presence: true, :if => :active_or_interventions?
+  # validates :interventions, presence: true, :if => :active_or_interventions?
   accepts_nested_attributes_for :interventions
 
   # Entries
@@ -48,9 +48,12 @@ class Graph < ApplicationRecord
     status.include?('interventions') || active?
   end
 
-  # def make_new_entry
-  #   byebug
-  #   entries.create(:symbol => type)
-  #   # ad.type => "Admin"
-  # end
+  def self.export(blob)
+    chart = Magick::Image.from_blob(blob) {
+      self.format = 'SVG'
+      self.background_color = 'transparent'
+    }
+    chart.first.format = 'PNG'
+    Base64.encode64(chart.first.to_blob)
+  end
 end

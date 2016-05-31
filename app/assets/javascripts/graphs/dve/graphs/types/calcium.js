@@ -7,10 +7,10 @@
 
 */
 
-DVE.Graph.prototype.AFP = function(){
+DVE.Graph.prototype.Calcium = function(){
 
   this.threshold = {
-    "AFP": {over: 8.1, under: null}
+    "CALCIUM": {over: 10.2, under: 8.5}
   };
 
   this.number_of_symbols = 1

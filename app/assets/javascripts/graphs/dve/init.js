@@ -22,7 +22,7 @@ DVE.init = function () {
       success: function (data) {
         DVE.current_graph = new DVE.Graph(data, this.graph_type);
         DVE.current_graph.render();
-        d3.select("#export")
+        d3.select("#export-graph")
           .on("click", DVE.current_graph.export);
       }.bind(this),
       error: function (result) {
