@@ -16,6 +16,16 @@
         <%= render "shared/nav" %>
       </header>
       <div class="container">
+        <% if !@graph.nil? && @graph.errors.any? %>
+          <div id="error_explanation" class="alert alert-danger">
+            <p><%= pluralize(@graph.errors.count, "error") %> prohibited this graph from being saved:</p>
+            <ul>
+            <% @graph.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
         <%= yield %>
       </div>
     </section>
