@@ -51,6 +51,6 @@ class Graphs::BuildController < ApplicationController
       params.require(graph).permit(
         :type, :user_id, :status,
         interventions_attributes: [:start,:end,:title,:description,:index,:type,:chart_type],
-        entries_attributes: [:date,:value,:symbol, :user_id])
+        entries_attributes: [:date,:value,:symbol, :user_id, :id])
     end
 end
